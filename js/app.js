@@ -19,8 +19,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
 document.querySelector('html').style.cssText ='scroll-behavior:smooth';
-document.querySelector('.main__hero').setAttribute('id','top');
-document.location.href = "#top";
 });
 /**
  * Define Global Variables
@@ -53,7 +51,7 @@ let addList = document.createElement('li');
 let linkSecion = document.createElement('a');
 linkSecion.textContent = sectionId;
 linkSecion.setAttribute("href","#"+sectionId);
-linkSecion.setAttribute("id","li_"+sectionId);
+addList.setAttribute("id","li_"+sectionId);
 linkSecion.classList.add('menu__link');
 NavigationMenu.appendChild(addList);
 addList.appendChild(linkSecion);
@@ -71,6 +69,7 @@ for ( let i = 0 ; i< sectionsCount.length; i++) {
   if (!(document.getElementById(selectSectionId).classList.contains('your-active-class')))
 {
   document.getElementById(selectSectionId).classList.add('your-active-class');
+  document.getElementById('li_'+selectSectionId).style.backgroundColor = '#333';
 }
 
 
@@ -80,18 +79,21 @@ let notActiveSectionsId = document.getElementsByTagName('section')[j].getAttribu
 
   if (!(notActiveSectionsId == selectSectionId)){
 
+    document.getElementById('li_'+notActiveSectionsId).style.backgroundColor = 'transparent';
+
     if ((document.getElementById(notActiveSectionsId).classList.contains('your-active-class')))
     {
     document.getElementById(notActiveSectionsId).classList.remove('your-active-class');
     }
-
   }
-
 }
-
 });
-
 }
+
+// Set sections as active
+
+
+
 
 /**
  * End Main Functions
