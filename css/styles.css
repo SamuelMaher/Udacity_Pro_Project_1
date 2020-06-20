@@ -134,7 +134,7 @@ section:nth-of-type(even) .landing__container {
 /* Circles appear to be random do to use of :nth-of-type psuedo class */
 section:nth-of-type(odd) .landing__container::before {
     content: '';
-    background: rgba(255, 255, 255, 0.187);
+    background: rgb(255, 255, 255, 0.187);
     position: absolute;
     z-index: -5;
     width: 20vh;

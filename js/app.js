@@ -1,3 +1,62 @@
+let sectionsCount = document.querySelectorAll('section');
+let NavigationMenu = document.querySelector('#navbar__list');
+
+for ( let i = 0 ; i< sectionsCount.length; i++) {
+
+let sectionId = document.getElementsByTagName('section')[i].getAttribute('id');
+let addList = document.createElement('li');
+let linkSecion = document.createElement('a');
+linkSecion.textContent = sectionId;
+linkSecion.setAttribute("href","#"+sectionId);
+linkSecion.classList.add('menu__link');
+NavigationMenu.appendChild(addList);
+addList.appendChild(linkSecion);
+}
+
+document.addEventListener('scroll', function() {
+  document.querySelector('.page__header').style.cssText = 'visibility: visibe';
+});
+
+//document.addEventListener('mousewheel',function(){
+
+for ( let i = 0 ; i< sectionsCount.length; i++) {
+
+  sectionsCount[i].addEventListener('mousewheel',function(){
+
+  let selectSectionId = document.getElementsByTagName('section')[i].getAttribute('id');
+  if (!(document.getElementById(selectSectionId).classList.contains('your-active-class')))
+{
+  document.getElementById(selectSectionId).classList.add('your-active-class');
+}
+
+
+for ( let j = 0 ; j< sectionsCount.length; j++) {
+
+let notActiveSectionsId = document.getElementsByTagName('section')[j].getAttribute('id');
+
+  if (!(notActiveSectionsId == selectSectionId)){
+
+    if ((document.getElementById(notActiveSectionsId).classList.contains('your-active-class')))
+    {
+    document.getElementById(notActiveSectionsId).classList.remove('your-active-class');
+    }
+
+  }
+
+}
+
+});
+
+}
+//});
+
+//Scroll page to TOP when refresh
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
+
+
+
 /**
  *
  * Manipulating the DOM exercise.
@@ -50,17 +109,6 @@
 
 // Build menu
 
-let sectionsCount = document.querySelectorAll('section');
-let navigationList = document.querySelector('#navbar__list');
-
-for ( let i = 0 ; i< sectionsCount.length; i++) {
-
-let sectionId = document.getElementsByTagName('section')[i].getAttribute('id');
-let addList = document.createElement('li');
-addList.textContent = sectionId;
-navigationList.appendChild(addList);
-
-}
 // Scroll to section on link click
 
 // Set sections as active
