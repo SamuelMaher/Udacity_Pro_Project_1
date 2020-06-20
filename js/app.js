@@ -27,6 +27,9 @@ let NavigationMenu = document.querySelector('#navbar__list');
  *
 */
 
+//Adding smooth-scrolling behavior
+
+document.querySelector('html').style.cssText ='scroll-behavior:smooth';
 
 
 /**
