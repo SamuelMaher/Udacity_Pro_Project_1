@@ -11,8 +11,17 @@
  *
  * JS Standard: ESlint
  *
+
 */
 
+//Adding smooth-scrolling behavior
+
+document.addEventListener('DOMContentLoaded', function () {
+
+document.querySelector('html').style.cssText ='scroll-behavior:smooth';
+document.querySelector('.main__hero').setAttribute('id','top');
+document.location.href = "#top";
+});
 /**
  * Define Global Variables
  *
@@ -27,9 +36,7 @@ let NavigationMenu = document.querySelector('#navbar__list');
  *
 */
 
-//Adding smooth-scrolling behavior
 
-document.querySelector('html').style.cssText ='scroll-behavior:smooth';
 
 
 /**
@@ -46,6 +53,7 @@ let addList = document.createElement('li');
 let linkSecion = document.createElement('a');
 linkSecion.textContent = sectionId;
 linkSecion.setAttribute("href","#"+sectionId);
+linkSecion.setAttribute("id","li_"+sectionId);
 linkSecion.classList.add('menu__link');
 NavigationMenu.appendChild(addList);
 addList.appendChild(linkSecion);
@@ -96,7 +104,3 @@ let notActiveSectionsId = document.getElementsByTagName('section')[j].getAttribu
 // Scroll to section on link click
 
 // Set sections as active
-//go to top when referesh the page
-window.onbeforeunload = function () {
-  window.scrollTo(0, 0);
-}
