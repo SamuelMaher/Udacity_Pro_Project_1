@@ -13,15 +13,11 @@ NavigationMenu.appendChild(addList);
 addList.appendChild(linkSecion);
 }
 
-document.addEventListener('scroll', function() {
-  document.querySelector('.page__header').style.cssText = 'visibility: visibe';
-});
-
 //document.addEventListener('mousewheel',function(){
 
 for ( let i = 0 ; i< sectionsCount.length; i++) {
 
-  sectionsCount[i].addEventListener('mousewheel',function(){
+  sectionsCount[i].addEventListener('wheel',function(){
 
   let selectSectionId = document.getElementsByTagName('section')[i].getAttribute('id');
   if (!(document.getElementById(selectSectionId).classList.contains('your-active-class')))
