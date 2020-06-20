@@ -1,6 +1,41 @@
+/**
+ *
+ * Manipulating the DOM exercise.
+ * Exercise programmatically builds navigation,
+ * scrolls to anchors from navigation,
+ * and highlights section in viewport upon scrolling.
+ *
+ * Dependencies: None
+ *
+ * JS Version: ES2015/ES6
+ *
+ * JS Standard: ESlint
+ *
+*/
+
+/**
+ * Define Global Variables
+ *
+*/
+
 let sectionsCount = document.querySelectorAll('section');
 let NavigationMenu = document.querySelector('#navbar__list');
 
+/**
+ * End Global Variables
+ * Start Helper Functions
+ *
+*/
+
+
+
+/**
+ * End Helper Functions
+ * Begin Main Functions
+ *
+*/
+
+// build the nav
 for ( let i = 0 ; i< sectionsCount.length; i++) {
 
 let sectionId = document.getElementsByTagName('section')[i].getAttribute('id');
@@ -13,8 +48,10 @@ NavigationMenu.appendChild(addList);
 addList.appendChild(linkSecion);
 }
 
-//document.addEventListener('mousewheel',function(){
+// Add class 'active' to section when near top of viewport
 
+
+// Scroll to anchor ID using scrollTO event
 for ( let i = 0 ; i< sectionsCount.length; i++) {
 
   sectionsCount[i].addEventListener('wheel',function(){
@@ -44,58 +81,6 @@ let notActiveSectionsId = document.getElementsByTagName('section')[j].getAttribu
 });
 
 }
-//});
-
-//Scroll page to TOP when refresh
-window.onbeforeunload = function () {
-  window.scrollTo(0, 0);
-}
-
-
-
-/**
- *
- * Manipulating the DOM exercise.
- * Exercise programmatically builds navigation,
- * scrolls to anchors from navigation,
- * and highlights section in viewport upon scrolling.
- *
- * Dependencies: None
- *
- * JS Version: ES2015/ES6
- *
- * JS Standard: ESlint
- *
-*/
-
-/**
- * Define Global Variables
- *
-*/
-
-
-/**
- * End Global Variables
- * Start Helper Functions
- *
-*/
-
-
-
-/**
- * End Helper Functions
- * Begin Main Functions
- *
-*/
-
-// build the nav
-
-
-// Add class 'active' to section when near top of viewport
-
-
-// Scroll to anchor ID using scrollTO event
-
 
 /**
  * End Main Functions
@@ -108,3 +93,7 @@ window.onbeforeunload = function () {
 // Scroll to section on link click
 
 // Set sections as active
+//go to top when referesh the page
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
